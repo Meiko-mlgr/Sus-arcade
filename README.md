@@ -41,10 +41,18 @@ npm (comes with Node.js)
 
 **Installation & Running**
 1. Clone the repository
-```git clone https://github.com/Meiko-mlgr/Sus-arcade```
-2. Navigate to the project directory
-```cd sus-arcade```
-3. Install NPM packages
-```npm install```
-4. Run the development server
-```npm run dev```
+```
+git clone https://github.com/Meiko-mlgr/Sus-arcade
+```
+3. Navigate to the project directory
+```
+cd sus-arcade
+```
+5. Install NPM packages
+```
+npm install
+```
+7. Run the development server
+```
+npm run dev
+```
