@@ -19,12 +19,15 @@ As of the latest commit, the following features are implemented:
 
 **Game Lobby:** A functional main menu where users can see and select from the available games.
 
-**Component-Based Structure:** The application is broken down into reusable components (App, GameLobby).
+**Component-Based Structure:** The application is broken down into reusable components (App, GameLobby, MineGames).
+
+**Mines Game ("Clear Asteroids"):** 
+- A fully playable client-side Minesweeper game with win/loss conditions and a restart feature.
+    - A polished settings screen with custom UI controls.
+    - Adjustable grid size and mine count.
 
 # Future Features (Roadmap)
 The following features are planned for development:
-
-**Mines Game:** Implement the logic and UI for the "Clear Asteroids" minesweeper game.
 
 **Plinko Game:** Implement the logic and UI for the "Calibrate Fuel Injector" plinko game.
 
@@ -35,7 +38,7 @@ The following features are planned for development:
 ## Getting Started
 To get a local copy up and running, follow these simple steps.
 
-Prerequisites
+**Prerequisites**
 Node.js (v18 or higher recommended)
 npm (comes with Node.js)
 
