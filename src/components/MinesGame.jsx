@@ -27,8 +27,8 @@ const createGrid = (size, mineCount) => {
 
 const MinesGame = ({ onBackToLobby }) => {
     const [gameStatus, setGameStatus] = useState('settings');
-    const [gridSize, setGridSize] = useState(8);
-    const [mineCount, setMineCount] = useState(10);
+    const [gridSize, setGridSize] = useState(2);
+    const [mineCount, setMineCount] = useState(1);
     const [grid, setGrid] = useState(() => createGrid(gridSize, mineCount));
 
     useEffect(() => {
@@ -59,6 +59,7 @@ const MinesGame = ({ onBackToLobby }) => {
             const revealedSafeCells = newGrid.flat().filter(cell => cell.isRevealed && !cell.isMine).length;
             if (revealedSafeCells === nonMineCells) {
                 setGameStatus('won');
+                newGrid.forEach(r => r.forEach(cell => { if (cell.isMine) cell.isRevealed = true; }));
             }
         }
         setGrid(newGrid);
@@ -76,7 +77,7 @@ const MinesGame = ({ onBackToLobby }) => {
                         <div className={styles.numberInput}>
                             <button className={styles.inputButton} onClick={() => setGridSize(s => Math.max(2, s - 1))}>-</button>
                             <span className={styles.inputValue}>{gridSize}</span>
-                            <button className={styles.inputButton} onClick={() => setGridSize(s => Math.min(5, s + 1))}>+</button>
+                            <button className={styles.inputButton} onClick={() => setGridSize(s => Math.min(4, s + 1))}>+</button>
                         </div>
                     </div>
                     <div className={styles.settingControl}>
@@ -103,7 +104,7 @@ const MinesGame = ({ onBackToLobby }) => {
                 <p className={`${styles.statusMessage} ${ gameStatus === 'won' ? styles.statusWon : gameStatus === 'lost' ? styles.statusLost : styles.statusPlaying }`}>
                     {gameStatus === 'won' && 'Task Complete!'}
                     {gameStatus === 'lost' && 'EJECTED!'}
-                    {gameStatus === 'playing' && 'Find all the impostors...'}
+                    {gameStatus === 'playing' && 'Investigating...'}
                 </p>
             </div>
             <div className={styles.grid} style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)` }}>

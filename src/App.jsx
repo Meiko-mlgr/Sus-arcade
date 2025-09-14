@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './App.module.css';
 import GameLobby from './components/GameLobby';
 import MinesGame from './components/MinesGame'; 
+import PachinkoGame from './components/PachinkoGame';
 
 const CrewmateIcon = () => (
     <svg className={styles.crewmateIcon} viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,15 +11,25 @@ const CrewmateIcon = () => (
     </svg>
 );
 
+// Score display component
+const ScoreDisplay = ({ score }) => (
+  <div className={styles.scoreContainer}>
+    <h3 className={styles.scoreTitle}>Total Score</h3>
+    <p className={styles.scoreValue}>{score}</p>
+  </div>
+);
+
 export default function App() {
   const [activeGame, setActiveGame] = useState(null);
+  const [score, setScore] = useState(0); // This state was missing
 
   const renderContent = () => {
     if (activeGame === 'mines') {
       return <MinesGame onBackToLobby={() => setActiveGame(null)} />;
     }
-    if (activeGame === 'plinko') {
-      return <div>Plinko Game Loaded!</div>;
+    if (activeGame === 'pachinko') {
+      // Pass the setScore function to the Pachinko game
+      return <PachinkoGame onBackToLobby={() => setActiveGame(null)} setScore={setScore} />;
     }
     return <GameLobby onSelectGame={setActiveGame} />;
   };
@@ -35,6 +46,8 @@ export default function App() {
         </div>
       </header>
       <main className={styles.mainContent}>
+        {/* Conditionally render the score display only for Pachinko */}
+        {activeGame === 'pachinko' && <ScoreDisplay score={score} />}
         {renderContent()}
       </main>
     </div>
