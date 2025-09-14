@@ -1,6 +1,9 @@
 # Sus Arcade 
 A mini-game arcade inspired by Indie game "Among Us," built with a modern React frontend. This project is a portfolio piece showcasing component-based architecture and clean, scalable code.
 
+<a href="https://freeimage.host/i/KuWhMdu"><img src="https://iili.io/KuWhMdu.md.png" alt="KuWhMdu.md.png" border="0"></a>
+<a href="https://freeimage.host/i/KuWlb72"><img src="https://iili.io/KuWlb72.md.png" alt="KuWlb72.md.png" border="0"></a>
+
 
 ## About The Project
 "Sus Arcade" is a web application that hosts a collection of simple, fun mini-games with an "Among Us" theme elements. The project's clean and minimalist UI is inspired by modern puzzle games and interactive web applications, focusing on a clear and intuitive user experience.
@@ -9,7 +12,7 @@ The primary goal is to build a scalable frontend that can easily accommodate new
 
 ## Tech Stack
 - **Framework:** [ReactJS](https://react.dev/) (via [Vite](https://vitejs.dev/))
-
+- **Physics:** [Matter.js](https://brm.io/matter-js/) for 2D physics simulation.
 - **Styling:** [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) with [CSS Modules](https://github.com/css-modules/css-modules)
 
 - **Version Control:** [Git](https://git-scm.com/) & [GitHub](https://github.com/)
@@ -23,15 +26,19 @@ As of the latest commit, the following features are implemented:
 
 **Component-Based Structure:** The application is broken down into reusable components (App, GameLobby, MineGames).
 
-**Mines Game ("Clear Asteroids"):** 
+**Minesweeper Game (Clear Asteroids):** 
 - A fully playable client-side Minesweeper game with win/loss conditions and a restart feature.
 - A polished settings screen with custom UI controls.
 - Adjustable grid size and mine count.
 
+**Pachinko (Calibrate Injector):**
+- A fully playable Pachinko game with an interactive pyramid layout.
+- Real-time physics for ball drops and bouncing, powered by Matter.js.
+- A dynamic scoring system based on where the ball lands.
+- Adjustable peg rows and ball count.
+
 # Future Features (Roadmap)
 The following features are planned for development:
-
-**Plinko Game:** Implement the logic and UI for the "Calibrate Fuel Injector" plinko game.
 
 **User Authentication:** Allow users to create accounts and log in.
 
