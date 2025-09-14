@@ -17,10 +17,10 @@ const GameLobby = ({ onSelectGame }) => {
         </div>
         
         <div 
-          className={`${styles.gameCard} ${styles.gameCardPlinko}`}
-          onClick={() => onSelectGame('plinko')}
+          className={`${styles.gameCard} ${styles.gameCardPachinko}`}
+          onClick={() => onSelectGame('pachinko')}
         >
-          <h2 className={styles.cardTitle}>Plinko</h2>
+          <h2 className={styles.cardTitle}>Pachinko</h2>
           <p className={styles.cardDescription}>Calibrate the fuel injector.</p>
         </div>
       </div>

@@ -1,0 +1,209 @@
+.pachinkoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.renderCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through the canvas */
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #67E8F9;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.board {
+    position: relative;
+    width: 100%;
+    background-color: #1F2937;
+    border-radius: 0.75rem 0.75rem 0 0;
+    transition: height 0.3s ease-in-out;
+}
+
+.pegRow {
+    position: absolute; 
+    height: 10px;
+}
+
+.peg {
+    position: absolute;
+    background-color: #9CA3AF;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateX(-50%);
+}
+
+.ball {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    background-color: #F87171;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.multiplierRow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.multiplierBin {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    background-color: #374151;
+    border-right: 2px solid #111827;
+}
+
+.multiplierBin:first-child {
+    border-bottom-left-radius: 0.75rem;
+}
+
+.multiplierBin:last-child {
+    border-right: none;
+    border-bottom-right-radius: 0.75rem;
+}
+
+.settings {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    background-color: #1F2937;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.settingControl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settingControl label {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.numberInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #374151;
+    border-radius: 0.25rem;
+    border: 1px solid #4B5563;
+    overflow: hidden;
+}
+
+.inputButton {
+    background-color: #4B5563;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.2s;
+}
+
+.inputButton:hover {
+    background-color: #6B7280;
+}
+
+.inputValue {
+    width: 50px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.button {
+    flex-grow: 1;
+    background-color: #4B5563;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #6B7280;
+}
+
+.buttonBack {
+    background-color: #1F2937;
+}
+
+.scoreContainer {
+    padding: 1.5rem;
+    background-color: #1F2937;
+    border-radius: 0.75rem;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+.scoreTitle {
+    font-size: 2%;
+    color: #9CA3AF;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.scoreValue {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #67E8F9;
+}
+
+.multiplierBinHit {
+    background-color: #67E8F9;
+    color: #111827;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
