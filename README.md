@@ -1,4 +1,4 @@
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](sussy-arcade.netlify.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://sussy-arcade.netlify.app)
 
 # Sus Arcade 
 A mini-game arcade inspired by Indie game "Among Us," built with a modern React frontend. This project is a portfolio piece showcasing component-based architecture and clean, scalable code.
@@ -72,3 +72,8 @@ npm install
 ```
 npm run dev
 ```
+
+# Contact
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Mikko_Melgar-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mikko-melgar-447069233)
+[![Email](https://img.shields.io/badge/Email-Contact%20Me-red?style=for-the-badge&logo=gmail)](mailto:springleaked@gmail.com)
