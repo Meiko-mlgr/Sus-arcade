@@ -37,13 +37,16 @@ As of the latest commit, the following features are implemented:
 - A dynamic scoring system based on where the ball lands.
 - Adjustable peg rows and ball count.
 
+User Interface:
+  - A UI flow for a user login screen.
+  - A leaderboard display screen with placeholder data.
+
 # Future Features (Roadmap)
 The following features are planned for development:
 
-**User Authentication:** Allow users to create accounts and log in.
-
 **Backend Integration:** Connect the frontend to a Node.js backend to manage game state and leaderboards.
-
+- **User Authentication:** Allow users to create accounts and log in.
+- **Leaderboards:** Save and retrieve high scores for each game.
 # Getting Started
 To Locally host the app.
 
