@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './GameLobby.module.css';
 
-const GameLobby = ({ onSelectGame }) => {
+const GameLobby = ({ onSelectGame, onShowLeaderboard}) => {
   return (
     <div className={styles.lobbyContainer}>
       <h1 className={styles.title}>Sus Arcade</h1>
@@ -24,6 +24,9 @@ const GameLobby = ({ onSelectGame }) => {
           <p className={styles.cardDescription}>Calibrate the fuel injector.</p>
         </div>
       </div>
+      <button onClick={onShowLeaderboard} className={styles.leaderboardButton}>
+        View Leaderboard
+      </button>
     </div>
   );
 };

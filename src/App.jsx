@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import styles from './App.module.css';
 import GameLobby from './components/GameLobby';
-import MinesGame from './components/MinesGame'; 
+import MinesGame from './components/MinesGame';
 import PachinkoGame from './components/PachinkoGame';
+import Login from './components/Login';
+import Leaderboard from './components/Leaderboard';
 
 const CrewmateIcon = () => (
     <svg className={styles.crewmateIcon} viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,29 +13,59 @@ const CrewmateIcon = () => (
     </svg>
 );
 
-// Score display component
-const ScoreDisplay = ({ score }) => (
+
+const ScoreDisplay = ({ score, isAnimated }) => (
   <div className={styles.scoreContainer}>
     <h3 className={styles.scoreTitle}>Total Score</h3>
-    <p className={styles.scoreValue}>{score}</p>
+    {/* Add the animation class when isAnimated is true */}
+    <p className={`${styles.scoreValue} ${isAnimated ? styles.scoreAnimate : ''}`}>{score}</p>
   </div>
 );
 
+
 export default function App() {
   const [activeGame, setActiveGame] = useState(null);
-  const [score, setScore] = useState(0); // This state was missing
+  const [score, setScore] = useState(0);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [scoreIsAnimated, setScoreIsAnimated] = useState(false); // State for animation
+
+
+  useEffect(() => {
+    if (score > 0) {
+      setScoreIsAnimated(true);
+      const timer = setTimeout(() => setScoreIsAnimated(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [score]);
+
+
+  const handleLogin = (username) => {
+    setCurrentUser(username);
+    setShowLogin(false);
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+  };
 
   const renderContent = () => {
+    if (showLogin) {
+      return <Login onLogin={handleLogin} onBack={() => setShowLogin(false)} />;
+    }
+    if (showLeaderboard) {
+      return <Leaderboard onBack={() => setShowLeaderboard(false)} />;
+    }
     if (activeGame === 'mines') {
       return <MinesGame onBackToLobby={() => setActiveGame(null)} />;
     }
     if (activeGame === 'pachinko') {
-      // Pass the setScore function to the Pachinko game
       return <PachinkoGame onBackToLobby={() => setActiveGame(null)} setScore={setScore} />;
     }
-    return <GameLobby onSelectGame={setActiveGame} />;
+    return <GameLobby onSelectGame={setActiveGame} onShowLeaderboard={() => setShowLeaderboard(true)} />;
   };
-  
+
   return (
     <div className={styles.appContainer}>
       <header className={styles.header}>
@@ -42,12 +74,20 @@ export default function App() {
           <span className={styles.logoText}>Sus Arcade</span>
         </div>
         <div>
-          <button className={styles.loginButton}>Login</button>
+          {currentUser ? (
+            <div className={styles.userInfo}>
+              <span>{currentUser}</span>
+              <button onClick={handleLogout} className={styles.loginButton}>Logout</button>
+            </div>
+          ) : (
+            <button onClick={() => setShowLogin(true)} className={styles.loginButton}>Login</button>
+          )}
         </div>
       </header>
       <main className={styles.mainContent}>
-        {/* Conditionally render the score display only for Pachinko */}
-        {activeGame === 'pachinko' && <ScoreDisplay score={score} />}
+        {activeGame === 'pachinko' && !showLogin && !showLeaderboard && (
+          <ScoreDisplay score={score} isAnimated={scoreIsAnimated} />
+        )}
         {renderContent()}
       </main>
     </div>
