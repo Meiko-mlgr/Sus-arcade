@@ -72,9 +72,9 @@ const PachinkoGame = ({ onBackToLobby, setScore }) => {
 
         const dividerWalls = [];
         for (let i = 0; i < multipliers.length - 1; i++) {
-            const x = binWidth * (i + 1); // Positioned at the edge of each bin
+            const x = binWidth * (i + 1); 
             const y = boardHeight - 20;
-            const wall = Matter.Bodies.rectangle(x, y, 2, 40, { // 2px wide walls
+            const wall = Matter.Bodies.rectangle(x, y, 2, 40, {
                 isStatic: true,
                 render: { visible: false }, // Invisible
             });
@@ -103,7 +103,7 @@ const PachinkoGame = ({ onBackToLobby, setScore }) => {
 
                     setTimeout(() => {
                         Matter.World.remove(world, ball);
-                    }, 300); // 300ms delay
+                    }, 300);
                 }
             });
         };
@@ -150,7 +150,7 @@ const PachinkoGame = ({ onBackToLobby, setScore }) => {
                 <div className={styles.header}><h2 className={styles.title}>Game Settings</h2></div>
                 <div className={styles.settings}>
                     <div className={styles.settingControl}>
-                        <label>Peg Rows (6-10)</label>
+                        <label>Peg Rows (6-8)</label>
                         <div className={styles.numberInput}>
                             <button className={styles.inputButton} onClick={() => setPegRows(r => Math.max(6, r - 1))}>-</button>
                             <span className={styles.inputValue}>{pegRows}</span>

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import GameLobby from './components/GameLobby';
 import MinesGame from './components/MinesGame';
 import PachinkoGame from './components/PachinkoGame';
 import Login from './components/Login';
 import Leaderboard from './components/Leaderboard';
+import Footer from './components/Footer';
 
 const CrewmateIcon = () => (
     <svg className={styles.crewmateIcon} viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +18,6 @@ const CrewmateIcon = () => (
 const ScoreDisplay = ({ score, isAnimated }) => (
   <div className={styles.scoreContainer}>
     <h3 className={styles.scoreTitle}>Total Score</h3>
-    {/* Add the animation class when isAnimated is true */}
     <p className={`${styles.scoreValue} ${isAnimated ? styles.scoreAnimate : ''}`}>{score}</p>
   </div>
 );
@@ -90,6 +90,7 @@ export default function App() {
         )}
         {renderContent()}
       </main>
+      <Footer />
     </div>
   );
 }
