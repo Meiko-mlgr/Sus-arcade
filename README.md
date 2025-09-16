@@ -42,6 +42,7 @@ As of the latest commit, the following features are implemented:
 User Interface:
   - A UI flow for a user login screen.
   - A leaderboard display screen with placeholder data.
+  - A site-wide footer with social media links.
 
 # Future Features (Roadmap)
 The following features are planned for development:
