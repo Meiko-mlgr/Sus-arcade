@@ -3,9 +3,9 @@ import Matter from 'matter-js';
 import styles from './PachinkoGame.module.css';
 
 const layoutConfigs = {
-    6: { verticalGap: 60, horizontalGap: 72 },
-    7: { verticalGap: 60, horizontalGap: 63 },
-    8: { verticalGap: 60, horizontalGap: 56 },
+    6: { verticalGap: 50, horizontalGap: 72 },
+    7: { verticalGap: 50, horizontalGap: 63 },
+    8: { verticalGap: 50, horizontalGap: 56 },
 };
 
 const PachinkoGame = ({ onBackToLobby, setScore }) => { 
