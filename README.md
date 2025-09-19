@@ -63,7 +63,7 @@ git clone https://github.com/Meiko-mlgr/Sus-arcade
 ```
 2. Navigate to the project directory
 ```
-cd sus-arcade
+cd Sus-arcade
 ```
 3. Install NPM packages
 ```
